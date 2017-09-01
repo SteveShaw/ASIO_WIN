@@ -1,0 +1,8 @@
+#ifndef ASIO_WIN_DETAIL_CONFIG_HPP
+#define ASIO_WIN_DETAIL_CONFIG_HPP
+
+#define ASIO_WIN_DECL inline
+
+
+
+#endif // ASIO_WIN_DETAIL_CONFIG_HPP
