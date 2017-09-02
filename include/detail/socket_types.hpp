@@ -1,0 +1,92 @@
+#ifndef ASIO_WIN_DETAIL_SOCKET_TYPES_HPP
+#define ASIO_WIN_DETAIL_SOCKET_TYPES_HPP
+
+#include <winsock2.h>
+#include <ws2tcpip.h>
+
+#pragma comment(lib, "ws2_32.lib")
+
+namespace asio_win
+{
+namespace detail
+{
+using socket_type = SOCKET;
+const SOCKET invalid_socket = INVALID_SOCKET;
+const int socket_error_retval = SOCKET_ERROR;
+const int max_addr_v4_str_len = 256;
+const int max_addr_v6_str_len = 256;
+using socket_addr_type = sockaddr;
+using in4_addr_type = in_addr;
+using in4_mre_type = ip_mreq;
+using sockaddr_in4_type = sockaddr_in;
+
+using in6_addr_type = in6_addr;
+using in6_mreq_type = ipv6_mreq;
+using sockaddr_int6_type = sockaddr_in6;
+using sockaddr_storage_type = sockaddr_storage;
+using addrinfo_type = addrinfo;
+
+using linger_type = linger;
+using ioctl_arg_type = unsigned long;
+using u_long_type = u_long;
+using u_short_type = u_short;
+using signed_size_type = int;
+
+# define ASIO_OS_DEF(c) ASIO_OS_DEF_##c
+# define ASIO_OS_DEF_AF_UNSPEC AF_UNSPEC
+# define ASIO_OS_DEF_AF_INET AF_INET
+# define ASIO_OS_DEF_AF_INET6 AF_INET6
+# define ASIO_OS_DEF_SOCK_STREAM SOCK_STREAM
+# define ASIO_OS_DEF_SOCK_DGRAM SOCK_DGRAM
+# define ASIO_OS_DEF_SOCK_RAW SOCK_RAW
+# define ASIO_OS_DEF_SOCK_SEQPACKET SOCK_SEQPACKET
+# define ASIO_OS_DEF_IPPROTO_IP IPPROTO_IP
+# define ASIO_OS_DEF_IPPROTO_IPV6 IPPROTO_IPV6
+# define ASIO_OS_DEF_IPPROTO_TCP IPPROTO_TCP
+# define ASIO_OS_DEF_IPPROTO_UDP IPPROTO_UDP
+# define ASIO_OS_DEF_IPPROTO_ICMP IPPROTO_ICMP
+# define ASIO_OS_DEF_IPPROTO_ICMPV6 IPPROTO_ICMPV6
+# define ASIO_OS_DEF_FIONBIO FIONBIO
+# define ASIO_OS_DEF_FIONREAD FIONREAD
+# define ASIO_OS_DEF_INADDR_ANY INADDR_ANY
+# define ASIO_OS_DEF_MSG_OOB MSG_OOB
+# define ASIO_OS_DEF_MSG_PEEK MSG_PEEK
+# define ASIO_OS_DEF_MSG_DONTROUTE MSG_DONTROUTE
+# define ASIO_OS_DEF_MSG_EOR 0 // Not supported on Windows.
+# define ASIO_OS_DEF_SHUT_RD SD_RECEIVE
+# define ASIO_OS_DEF_SHUT_WR SD_SEND
+# define ASIO_OS_DEF_SHUT_RDWR SD_BOTH
+# define ASIO_OS_DEF_SOMAXCONN SOMAXCONN
+# define ASIO_OS_DEF_SOL_SOCKET SOL_SOCKET
+# define ASIO_OS_DEF_SO_BROADCAST SO_BROADCAST
+# define ASIO_OS_DEF_SO_DEBUG SO_DEBUG
+# define ASIO_OS_DEF_SO_DONTROUTE SO_DONTROUTE
+# define ASIO_OS_DEF_SO_KEEPALIVE SO_KEEPALIVE
+# define ASIO_OS_DEF_SO_LINGER SO_LINGER
+# define ASIO_OS_DEF_SO_OOBINLINE SO_OOBINLINE
+# define ASIO_OS_DEF_SO_SNDBUF SO_SNDBUF
+# define ASIO_OS_DEF_SO_RCVBUF SO_RCVBUF
+# define ASIO_OS_DEF_SO_SNDLOWAT SO_SNDLOWAT
+# define ASIO_OS_DEF_SO_RCVLOWAT SO_RCVLOWAT
+# define ASIO_OS_DEF_SO_REUSEADDR SO_REUSEADDR
+# define ASIO_OS_DEF_TCP_NODELAY TCP_NODELAY
+# define ASIO_OS_DEF_IP_MULTICAST_IF IP_MULTICAST_IF
+# define ASIO_OS_DEF_IP_MULTICAST_TTL IP_MULTICAST_TTL
+# define ASIO_OS_DEF_IP_MULTICAST_LOOP IP_MULTICAST_LOOP
+# define ASIO_OS_DEF_IP_ADD_MEMBERSHIP IP_ADD_MEMBERSHIP
+# define ASIO_OS_DEF_IP_DROP_MEMBERSHIP IP_DROP_MEMBERSHIP
+# define ASIO_OS_DEF_IP_TTL IP_TTL
+# define ASIO_OS_DEF_IPV6_UNICAST_HOPS IPV6_UNICAST_HOPS
+# define ASIO_OS_DEF_IPV6_MULTICAST_IF IPV6_MULTICAST_IF
+# define ASIO_OS_DEF_IPV6_MULTICAST_HOPS IPV6_MULTICAST_HOPS
+# define ASIO_OS_DEF_IPV6_MULTICAST_LOOP IPV6_MULTICAST_LOOP
+# define ASIO_OS_DEF_IPV6_JOIN_GROUP IPV6_JOIN_GROUP
+# define ASIO_OS_DEF_IPV6_LEAVE_GROUP IPV6_LEAVE_GROUP
+# define ASIO_OS_DEF_AI_CANONNAME AI_CANONNAME
+# define ASIO_OS_DEF_AI_PASSIVE AI_PASSIVE
+# define ASIO_OS_DEF_AI_NUMERICHOST AI_NUMERICHOST
+
+}
+}
+
+#endif // ASIO_WIN_DETAIL_SOCKET_TYPES_HPP
